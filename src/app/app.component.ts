@@ -8,19 +8,25 @@ import { AuthService } from './services/auth.service';
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink],
   template: `
-    <header class="topbar">
-      <div class="container nav">
-        <a routerLink="/" class="brand">Car Rent</a>
-        <nav>
-          <a routerLink="/">Home</a>
-          <a routerLink="/about">About Us</a>
-          <a routerLink="/contact">Contact</a>
-          <a *ngIf="!currentUser" routerLink="/login">Login</a>
-          <a *ngIf="!currentUser" routerLink="/register">Register</a>
-          <button class="btn btn-secondary" (click)="toggleTheme()">
-            {{ theme === 'light' ? 'Dark Mode' : 'Light Mode' }}
+    <header class="topbar shadow-sm">
+      <div class="container d-flex justify-content-between align-items-center py-2 gap-3 flex-wrap">
+        <a routerLink="/" class="brand d-flex align-items-center gap-2">
+          <span class="logo-badge"><i class="bi bi-car-front-fill"></i></span>
+          <span>Car Rent</span>
+        </a>
+        <nav class="d-flex align-items-center gap-2 flex-wrap">
+          <a routerLink="/" class="nav-pill"><i class="bi bi-house-door me-1"></i>Home</a>
+          <a routerLink="/about" class="nav-pill"><i class="bi bi-info-circle me-1"></i>About</a>
+          <a routerLink="/contact" class="nav-pill"><i class="bi bi-envelope me-1"></i>Contact</a>
+          <a *ngIf="!currentUser" routerLink="/login" class="nav-pill"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
+          <a *ngIf="!currentUser" routerLink="/register" class="nav-pill"><i class="bi bi-person-plus me-1"></i>Register</a>
+          <button class="btn btn-secondary btn-sm" (click)="toggleTheme()">
+            <i class="bi" [ngClass]="theme === 'light' ? 'bi-moon-stars-fill' : 'bi-brightness-high-fill'"></i>
+            {{ theme === 'light' ? 'Dark' : 'Light' }}
           </button>
-          <button *ngIf="currentUser" class="btn btn-secondary" (click)="logout()">Logout</button>
+          <button *ngIf="currentUser" class="btn btn-secondary btn-sm" (click)="logout()">
+            <i class="bi bi-box-arrow-right me-1"></i>Logout
+          </button>
         </nav>
       </div>
     </header>
@@ -46,29 +52,28 @@ import { AuthService } from './services/auth.service';
         border-bottom: 1px solid var(--border);
         backdrop-filter: blur(8px);
       }
-      .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        padding: 14px 16px;
-      }
       .brand {
         font-weight: 800;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         color: var(--primary);
       }
-      nav {
-        display: flex;
+      .logo-badge {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: inline-flex;
         align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: #fff;
       }
-      nav a {
+      .nav-pill {
         padding: 7px 10px;
         border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
       }
-      nav a:hover {
+      .nav-pill:hover {
         background: var(--hover);
       }
       .page {

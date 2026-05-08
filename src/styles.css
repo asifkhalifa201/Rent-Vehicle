@@ -1,31 +1,31 @@
 :root {
-  --primary: #7c3aed;
-  --primary-strong: #5b21b6;
-  --accent: #000000;
-  --bg: #ffffff;
+  --primary: #6d28d9;
+  --primary-strong: #4c1d95;
+  --accent: #ec4899;
+  --bg: #fff7ff;
   --surface: #ffffff;
-  --text: #111111;
-  --muted: #4b4b4b;
+  --text: #1a1033;
+  --muted: #5f4f87;
   --card: #ffffff;
-  --border: #d7ccf6;
-  --hover: #f3edff;
-  --table-stripe: #faf7ff;
-  --shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
+  --border: #e9d5ff;
+  --hover: #f8ecff;
+  --table-stripe: #fdf7ff;
+  --shadow: 0 14px 32px rgba(109, 40, 217, 0.18);
 }
 
 [data-theme='dark'] {
-  --primary: #a855f7;
-  --primary-strong: #9333ea;
-  --accent: #ffffff;
-  --bg: #000000;
-  --surface: #0d0d0d;
-  --text: #ffffff;
-  --muted: #d0d0d0;
-  --card: #121212;
-  --border: #3a2a5d;
-  --hover: #1d1d1d;
-  --table-stripe: #171717;
-  --shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+  --primary: #c084fc;
+  --primary-strong: #a855f7;
+  --accent: #f472b6;
+  --bg: #0a0418;
+  --surface: #140a2a;
+  --text: #f6f0ff;
+  --muted: #c7b4e6;
+  --card: #17102e;
+  --border: #3c2468;
+  --hover: #241443;
+  --table-stripe: #1b1133;
+  --shadow: 0 16px 38px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -37,8 +37,8 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background: radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--primary) 12%, var(--bg)), var(--bg) 36%),
-    radial-gradient(circle at 90% 6%, color-mix(in srgb, var(--accent) 8%, var(--bg)), var(--bg) 40%), var(--bg);
+  background: radial-gradient(circle at 10% -10%, color-mix(in srgb, var(--primary) 18%, var(--bg)), var(--bg) 34%),
+    radial-gradient(circle at 95% 0%, color-mix(in srgb, var(--accent) 16%, var(--bg)), var(--bg) 42%), var(--bg);
   color: var(--text);
   transition: background 0.25s ease, color 0.25s ease;
 }
@@ -83,13 +83,13 @@ a {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #fff;
   border-color: var(--primary);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--primary-strong), #4c1d95);
+  background: linear-gradient(135deg, var(--primary-strong), color-mix(in srgb, var(--accent) 60%, var(--primary-strong)));
 }
 
 .btn-secondary {
