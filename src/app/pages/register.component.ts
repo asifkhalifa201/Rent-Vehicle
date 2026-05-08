@@ -30,10 +30,29 @@ import { Role } from '../models/models';
       </select>
 
       <button class="btn btn-primary" style="margin-top: 12px;" (click)="register()">Create Account</button>
-      <p>{{ message }}</p>
-      <a routerLink="/login">Already registered? Login</a>
+      <p class="status-text">{{ message }}</p>
+      <a class="login-link" routerLink="/login">Already registered? Login</a>
     </section>
-  `
+  `,
+  styles: [
+    `
+      .status-text {
+        margin-top: 10px;
+        margin-bottom: 8px;
+      }
+      .login-link {
+        display: inline-block;
+        margin-top: 2px;
+        color: var(--primary);
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .login-link:hover {
+        color: var(--accent);
+      }
+    `
+  ]
 })
 export class RegisterComponent {
   fullName = '';
