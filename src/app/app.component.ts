@@ -17,9 +17,6 @@ import { AuthService } from './services/auth.service';
           <a routerLink="/contact">Contact</a>
           <a *ngIf="!currentUser" routerLink="/login">Login</a>
           <a *ngIf="!currentUser" routerLink="/register">Register</a>
-          <a *ngIf="currentUser?.role === 'user'" routerLink="/user-dashboard">User Panel</a>
-          <a *ngIf="currentUser?.role === 'driver'" routerLink="/driver-dashboard">Driver Panel</a>
-          <a *ngIf="currentUser?.role === 'admin'" routerLink="/admin-dashboard">Admin Panel</a>
           <button class="btn btn-secondary" (click)="toggleTheme()">
             {{ theme === 'light' ? 'Dark Mode' : 'Light Mode' }}
           </button>

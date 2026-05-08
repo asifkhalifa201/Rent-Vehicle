@@ -10,7 +10,6 @@ import { AuthService } from '../services/auth.service';
   template: `
     <section class="card" style="max-width: 520px; margin: 0 auto;">
       <h2>Login</h2>
-      <p>Admin demo: <strong>admin&#64;rent.com / admin123</strong></p>
       <label>Email</label>
       <input [(ngModel)]="email" type="email" />
 
