@@ -30,9 +30,11 @@ export class DataService {
   getBookings(): Booking[] {
     const bookings = this.read<Booking>(this.bookingsKey).map((booking) => {
       const normalizedStatus = this.normalizeBookingStatus(String(booking.status ?? 'pending_driver'));
+      const pc = Number((booking as { passengerCount?: number }).passengerCount);
       return {
         ...booking,
         endDate: booking.endDate ?? booking.startDate ?? '',
+        passengerCount: !Number.isNaN(pc) && pc >= 1 ? pc : 1,
         status: normalizedStatus
       };
     });

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Booking, UploadedFile, Vehicle } from '../models/models';
 import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
+import { ConfirmDialogService } from '../ui/confirm-dialog.service';
+import { NoticeDialogService } from '../ui/notice-dialog.service';
 
 @Component({
   selector: 'app-driver-dashboard',
@@ -51,27 +53,27 @@ import { DataService } from '../services/data.service';
         <div>
           <label>RC Upload (Required)</label>
           <input type="file" (change)="onFileChange($event, 'rc')" />
-          <small>Selected: {{ rcFile.fileName || 'Not uploaded' }}</small>
+          <div class="upload-hint">Selected: {{ rcFile.fileName || 'Not uploaded' }}</div>
         </div>
         <div>
           <label>Insurance Upload (Required)</label>
           <input type="file" (change)="onFileChange($event, 'insurance')" />
-          <small>Selected: {{ insuranceFile.fileName || 'Not uploaded' }}</small>
+          <div class="upload-hint">Selected: {{ insuranceFile.fileName || 'Not uploaded' }}</div>
         </div>
         <div>
           <label>PUC Upload (Required)</label>
           <input type="file" (change)="onFileChange($event, 'puc')" />
-          <small>Selected: {{ pucFile.fileName || 'Not uploaded' }}</small>
+          <div class="upload-hint">Selected: {{ pucFile.fileName || 'Not uploaded' }}</div>
         </div>
         <div>
           <label>Permit Upload (Required)</label>
           <input type="file" (change)="onFileChange($event, 'permit')" />
-          <small>Selected: {{ permitFile.fileName || 'Not uploaded' }}</small>
+          <div class="upload-hint">Selected: {{ permitFile.fileName || 'Not uploaded' }}</div>
         </div>
         <div>
           <label>License Upload (Required)</label>
           <input type="file" (change)="onFileChange($event, 'license')" />
-          <small>Selected: {{ licenseFile.fileName || 'Not uploaded' }}</small>
+          <div class="upload-hint">Selected: {{ licenseFile.fileName || 'Not uploaded' }}</div>
         </div>
       </div>
 
@@ -81,7 +83,6 @@ import { DataService } from '../services/data.service';
       <button *ngIf="editingVehicleId" class="btn btn-secondary" style="margin-top: 12px; margin-left: 8px;" (click)="cancelEdit()">
         Cancel Edit
       </button>
-      <p>{{ message }}</p>
     </section>
 
     <section class="card" style="margin-top: 16px;">
@@ -118,6 +119,7 @@ import { DataService } from '../services/data.service';
             <th>User</th>
             <th>Vehicle</th>
             <th>Trip Type</th>
+            <th>Passengers</th>
             <th>From</th>
             <th>To</th>
             <th>Total Amount</th>
@@ -130,19 +132,36 @@ import { DataService } from '../services/data.service';
             <td>{{ b.userName }}</td>
             <td>{{ b.vehicleName }}</td>
             <td>{{ b.tripType }}</td>
+            <td>{{ b.passengerCount }}</td>
             <td>{{ b.startDate }}</td>
             <td>{{ b.endDate }}</td>
             <td>Rs {{ b.totalAmount }}</td>
             <td>{{ bookingStatusLabel(b.status) }}</td>
             <td>
-              <button class="btn btn-primary" *ngIf="canTakeBookingAction(b.status)" (click)="acceptBooking(b.id)">Accept</button>
-              <button class="btn btn-secondary" style="margin-left: 8px;" *ngIf="canTakeBookingAction(b.status)" (click)="rejectBooking(b.id)">Reject</button>
+              <button class="btn btn-primary" *ngIf="canTakeBookingAction(b.status)" (click)="acceptBooking(b)">Accept</button>
+              <button class="btn btn-secondary" style="margin-left: 8px;" *ngIf="canTakeBookingAction(b.status)" (click)="rejectBooking(b)">Reject</button>
             </td>
           </tr>
         </tbody>
       </table>
     </section>
-  `
+  `,
+  styles: [
+    `
+      .upload-hint {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 4px 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: color-mix(in srgb, var(--surface) 86%, var(--primary) 14%);
+        color: var(--text) !important;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+    `
+  ]
 })
 export class DriverDashboardComponent {
   editingVehicleId: string | null = null;
@@ -158,12 +177,13 @@ export class DriverDashboardComponent {
   pucFile: UploadedFile = this.emptyUpload();
   permitFile: UploadedFile = this.emptyUpload();
   licenseFile: UploadedFile = this.emptyUpload();
-  message = '';
 
   constructor(
     private readonly authService: AuthService,
     private readonly dataService: DataService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly notice: NoticeDialogService,
+    private readonly confirm: ConfirmDialogService
   ) {
     if (!this.authService.hasRole('driver')) {
       this.router.navigateByUrl('/login');
@@ -180,34 +200,63 @@ export class DriverDashboardComponent {
     return this.dataService.getBookings().filter((b) => b.driverId === me?.id);
   }
 
-  acceptBooking(bookingId: string): void {
-    const all = this.dataService.getBookings();
-    const booking = all.find((b) => b.id === bookingId);
-    if (!booking) {
-      return;
-    }
-    booking.status = 'confirmed';
-    this.dataService.saveBookings(all);
+  acceptBooking(booking: Booking): void {
+    const label = `${booking.userName} — ${booking.vehicleName}`;
+    this.confirm
+      .confirm(`Accept this booking for ${label}?`, {
+        title: 'Accept booking',
+        confirmText: 'Accept',
+        cancelText: 'Go back'
+      })
+      .subscribe((ok) => {
+        if (!ok) {
+          return;
+        }
+        const all = this.dataService.getBookings();
+        const found = all.find((b) => b.id === booking.id);
+        if (!found) {
+          this.notice.show('Booking could not be found.', 'error');
+          return;
+        }
+        found.status = 'confirmed';
+        this.dataService.saveBookings(all);
+        this.notice.show('Booking accepted. The user will see it as confirmed.', 'success');
+      });
   }
 
-  rejectBooking(bookingId: string): void {
-    const all = this.dataService.getBookings();
-    const booking = all.find((b) => b.id === bookingId);
-    if (!booking) {
-      return;
-    }
-    booking.status = 'cancelled';
-    this.dataService.saveBookings(all);
+  rejectBooking(booking: Booking): void {
+    const label = `${booking.userName} — ${booking.vehicleName}`;
+    this.confirm
+      .confirm(`Reject this booking for ${label}?`, {
+        title: 'Reject booking',
+        danger: true,
+        confirmText: 'Reject',
+        cancelText: 'Keep pending'
+      })
+      .subscribe((ok) => {
+        if (!ok) {
+          return;
+        }
+        const all = this.dataService.getBookings();
+        const found = all.find((b) => b.id === booking.id);
+        if (!found) {
+          this.notice.show('Booking could not be found.', 'error');
+          return;
+        }
+        found.status = 'cancelled';
+        this.dataService.saveBookings(all);
+        this.notice.show('Booking rejected. The user will see it as cancelled.', 'info');
+      });
   }
 
   saveVehicle(): void {
     const me = this.authService.getCurrentUser();
     if (!me || me.role !== 'driver') {
-      this.message = 'Please login as driver.';
+      this.notice.show('Please login as a driver.', 'error');
       return;
     }
     if (!this.vehicleName || !this.numberPlate || !this.vehicleType) {
-      this.message = 'Vehicle name, type and number plate are required.';
+      this.notice.show('Vehicle name, type and number plate are required.', 'error');
       return;
     }
     if (
@@ -222,7 +271,7 @@ export class DriverDashboardComponent {
       !this.licenseFile.fileName ||
       !this.licenseFile.dataUrl
     ) {
-      this.message = 'All documents are required (RC, Insurance, PUC, Permit, License).';
+      this.notice.show('All documents are required (RC, Insurance, PUC, Permit, License).', 'error');
       return;
     }
 
@@ -230,53 +279,79 @@ export class DriverDashboardComponent {
     if (this.editingVehicleId) {
       const index = vehicles.findIndex((v) => v.id === this.editingVehicleId && v.driverId === me.id);
       if (index === -1) {
-        this.message = 'Vehicle not found for update.';
+        this.notice.show('Vehicle not found for update.', 'error');
         return;
       }
-      vehicles[index] = {
-        ...vehicles[index],
-        vehicleType: this.vehicleType,
-        vehicleName: this.vehicleName,
-        numberPlate: this.numberPlate,
-        seating: Number(this.seating),
-        basePrice200Km: Number(this.basePrice200Km),
-        extraPricePerKm: Number(this.extraPricePerKm),
-        documents: {
-          rcFile: this.rcFile,
-          insuranceFile: this.insuranceFile,
-          pucFile: this.pucFile,
-          permitFile: this.permitFile,
-          licenseFile: this.licenseFile
-        },
-        approved: false,
-        approvalStatus: 'pending'
-      };
-      this.message = 'Vehicle updated and sent for admin re-approval.';
-    } else {
-      vehicles.push({
-        id: crypto.randomUUID(),
-        driverId: me.id,
-        driverName: me.fullName,
-        vehicleType: this.vehicleType,
-        vehicleName: this.vehicleName,
-        numberPlate: this.numberPlate,
-        seating: Number(this.seating),
-        basePrice200Km: Number(this.basePrice200Km),
-        extraPricePerKm: Number(this.extraPricePerKm),
-        documents: {
-          rcFile: this.rcFile,
-          insuranceFile: this.insuranceFile,
-          pucFile: this.pucFile,
-          permitFile: this.permitFile,
-          licenseFile: this.licenseFile
-        },
-        approved: false,
-        approvalStatus: 'pending'
-      });
-      this.message = 'Vehicle registered and sent for admin approval.';
     }
-    this.dataService.saveVehicles(vehicles);
-    this.resetForm();
+
+    const isEdit = !!this.editingVehicleId;
+    this.confirm
+      .confirm(
+        isEdit
+          ? `Submit changes to ${this.vehicleName} and send for admin re-approval?`
+          : `Register ${this.vehicleName} (${this.vehicleType}) and send all documents for admin approval?`,
+        {
+          title: isEdit ? 'Update vehicle' : 'Register vehicle',
+          confirmText: isEdit ? 'Submit update' : 'Submit registration',
+          cancelText: 'Go back'
+        }
+      )
+      .subscribe((ok) => {
+        if (!ok) {
+          return;
+        }
+        const all = this.dataService.getVehicles();
+        if (this.editingVehicleId) {
+          const index = all.findIndex((v) => v.id === this.editingVehicleId && v.driverId === me.id);
+          if (index === -1) {
+            this.notice.show('Vehicle not found for update.', 'error');
+            return;
+          }
+          all[index] = {
+            ...all[index],
+            vehicleType: this.vehicleType,
+            vehicleName: this.vehicleName,
+            numberPlate: this.numberPlate,
+            seating: Number(this.seating),
+            basePrice200Km: Number(this.basePrice200Km),
+            extraPricePerKm: Number(this.extraPricePerKm),
+            documents: {
+              rcFile: this.rcFile,
+              insuranceFile: this.insuranceFile,
+              pucFile: this.pucFile,
+              permitFile: this.permitFile,
+              licenseFile: this.licenseFile
+            },
+            approved: false,
+            approvalStatus: 'pending'
+          };
+          this.notice.show('Vehicle updated and sent for admin re-approval.', 'success');
+        } else {
+          all.push({
+            id: crypto.randomUUID(),
+            driverId: me.id,
+            driverName: me.fullName,
+            vehicleType: this.vehicleType,
+            vehicleName: this.vehicleName,
+            numberPlate: this.numberPlate,
+            seating: Number(this.seating),
+            basePrice200Km: Number(this.basePrice200Km),
+            extraPricePerKm: Number(this.extraPricePerKm),
+            documents: {
+              rcFile: this.rcFile,
+              insuranceFile: this.insuranceFile,
+              pucFile: this.pucFile,
+              permitFile: this.permitFile,
+              licenseFile: this.licenseFile
+            },
+            approved: false,
+            approvalStatus: 'pending'
+          });
+          this.notice.show('Vehicle registered and sent for admin approval.', 'success');
+        }
+        this.dataService.saveVehicles(all);
+        this.resetForm();
+      });
   }
 
   startEdit(vehicle: Vehicle): void {
@@ -292,12 +367,12 @@ export class DriverDashboardComponent {
     this.pucFile = this.normalizeUpload(vehicle.documents.pucFile);
     this.permitFile = this.normalizeUpload(vehicle.documents.permitFile);
     this.licenseFile = this.normalizeUpload(vehicle.documents.licenseFile);
-    this.message = 'Editing vehicle. Update details and save.';
+    this.notice.show('Editing vehicle. Update details and save.', 'info');
   }
 
   cancelEdit(): void {
     this.resetForm();
-    this.message = 'Edit cancelled.';
+    this.notice.show('Edit cancelled.', 'info');
   }
 
   onFileChange(event: Event, field: 'rc' | 'insurance' | 'puc' | 'permit' | 'license'): void {

@@ -48,6 +48,8 @@ export interface Booking {
   tripType: 'wedding' | 'trip' | 'transport';
   startDate: string;
   endDate: string;
+  /** Passengers for this trip (used to filter vehicles by seating capacity). */
+  passengerCount: number;
   totalKm: number;
   totalAmount: number;
   status: 'pending_driver' | 'confirmed' | 'cancelled' | 'completed';

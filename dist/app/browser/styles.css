@@ -1,4 +1,4 @@
-/* Car rental UI — premium landing style (navy + coral, clean cards) */
+/* src/styles.css */
 :root {
   --navy: #0c1929;
   --navy-soft: #132337;
@@ -22,14 +22,17 @@
   --footer-bg: #0c1929;
   --footer-text: #f1f5f9;
   --footer-muted: #94a3b8;
-  --hero-gradient: linear-gradient(135deg, #0c1929 0%, #1a3a52 45%, #0f2840 100%);
+  --hero-gradient:
+    linear-gradient(
+      135deg,
+      #0c1929 0%,
+      #1a3a52 45%,
+      #0f2840 100%);
 }
-
-html[data-theme='dark'] {
+html[data-theme=dark] {
   color-scheme: dark;
 }
-
-[data-theme='dark'] {
+[data-theme=dark] {
   --navy: #020617;
   --navy-soft: #0f172a;
   --cta: #fb923c;
@@ -52,16 +55,22 @@ html[data-theme='dark'] {
   --footer-bg: #020617;
   --footer-text: #f1f5f9;
   --footer-muted: #94a3b8;
-  --hero-gradient: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+  --hero-gradient:
+    linear-gradient(
+      135deg,
+      #020617 0%,
+      #0f172a 50%,
+      #1e1b4b 100%);
 }
-
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
   font-size: 16px;
   line-height: 1.55;
   background: var(--bg);
@@ -71,25 +80,20 @@ body {
   flex-direction: column;
   transition: background 0.25s ease, color 0.25s ease;
 }
-
 app-root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 .container {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 16px;
 }
-
-/* App panels (named .card across dashboards + auth pages) */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -97,7 +101,6 @@ a {
   padding: 22px;
   box-shadow: var(--shadow);
 }
-
 .site-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -105,12 +108,10 @@ a {
   padding: 22px;
   box-shadow: var(--shadow);
 }
-
 .grid {
   display: grid;
   gap: 16px;
 }
-
 .btn {
   border: 1px solid transparent;
   border-radius: 10px;
@@ -118,49 +119,52 @@ a {
   cursor: pointer;
   font-weight: 700;
   font-size: 14px;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
-
 .btn:hover {
   transform: translateY(-1px);
 }
-
 .btn-primary {
-  background: linear-gradient(135deg, var(--cta), var(--cta-dark));
+  background:
+    linear-gradient(
+      135deg,
+      var(--cta),
+      var(--cta-dark));
   color: #fff !important;
   border: none;
   box-shadow: 0 8px 24px rgba(255, 107, 53, 0.35);
 }
-
 .btn-primary:hover {
   filter: brightness(1.05);
   box-shadow: 0 10px 28px rgba(255, 107, 53, 0.45);
 }
-
 .btn-cta {
-  background: linear-gradient(135deg, var(--cta), var(--cta-dark)) !important;
+  background:
+    linear-gradient(
+      135deg,
+      var(--cta),
+      var(--cta-dark)) !important;
   color: #fff !important;
   border: none !important;
   border-radius: 999px !important;
   font-weight: 700;
   box-shadow: 0 8px 22px rgba(255, 107, 53, 0.35);
 }
-
 .btn-cta:hover {
   filter: brightness(1.06);
   color: #fff !important;
 }
-
 .btn-secondary {
   background: var(--surface);
   border-color: var(--border);
   color: var(--text);
 }
-
 .btn-secondary:hover {
   background: var(--hover);
 }
-
 input,
 select,
 textarea {
@@ -174,14 +178,12 @@ textarea {
   outline: none;
   font-size: 14px;
 }
-
 input:focus,
 select:focus,
 textarea:focus {
   border-color: var(--cta);
   box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
 }
-
 label {
   display: block;
   margin-top: 10px;
@@ -189,13 +191,11 @@ label {
   color: var(--text);
   font-size: 14px;
 }
-
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
-
 th,
 td {
   padding: 12px;
@@ -203,11 +203,9 @@ td {
   text-align: left;
   font-size: 14px;
 }
-
 td {
   color: var(--text);
 }
-
 th {
   color: color-mix(in srgb, var(--muted) 55%, var(--text) 45%);
   font-size: 13px;
@@ -215,15 +213,12 @@ th {
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
-
 tbody tr:nth-child(even) {
   background: var(--table-stripe);
 }
-
-[data-theme='dark'] tbody tr:nth-child(even) td {
+[data-theme=dark] tbody tr:nth-child(even) td {
   color: var(--text);
 }
-
 h1,
 h2,
 h3 {
@@ -231,50 +226,42 @@ h3 {
   color: var(--text);
   line-height: 1.25;
 }
-
 h1 {
   font-size: clamp(1.5rem, 4vw, 2.25rem);
 }
-
 h2 {
   font-size: 18px;
 }
-
 h3 {
   font-size: 16px;
 }
-
 p {
   color: var(--muted);
   font-size: 16px;
 }
-
 small {
   font-size: 14px;
 }
-
-/* Home hero full-bleed */
 .home-hero-bleed {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   width: 100vw;
   max-width: 100vw;
 }
-
-/* Bootstrap helpers on themed surfaces (dark mode readability) */
-[data-theme='dark'] .text-muted {
+[data-theme=dark] .text-muted {
   color: #cbd5e1 !important;
 }
-
-[data-theme='dark'] .form-control,
-[data-theme='dark'] .form-select {
+[data-theme=dark] .form-control,
+[data-theme=dark] .form-select {
   background-color: var(--surface);
   color: var(--text);
   border-color: var(--border);
 }
-
-[data-theme='dark'] .form-control:focus,
-[data-theme='dark'] .form-select:focus {
+[data-theme=dark] .form-control:focus,
+[data-theme=dark] .form-select:focus {
   border-color: var(--cta);
   box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--cta) 28%, transparent);
 }
+
+/* angular:styles/global:styles */
+/*# sourceMappingURL=styles.css.map */

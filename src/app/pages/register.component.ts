@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { NoticeDialogService } from '../ui/notice-dialog.service';
 import { Role } from '../models/models';
 
 @Component({
@@ -30,26 +31,21 @@ import { Role } from '../models/models';
       </select>
 
       <button class="btn btn-primary" style="margin-top: 12px;" (click)="register()">Create Account</button>
-      <p class="status-text">{{ message }}</p>
-      <a class="login-link" routerLink="/login">Already registered? Login</a>
+      <a class="login-link" routerLink="/login" [queryParams]="bookingSearchQueryParams">Already registered? Login</a>
     </section>
   `,
   styles: [
     `
-      .status-text {
-        margin-top: 10px;
-        margin-bottom: 8px;
-      }
       .login-link {
         display: inline-block;
         margin-top: 2px;
-        color: var(--primary);
+        color: var(--cta);
         font-weight: 700;
         text-decoration: underline;
         text-underline-offset: 3px;
       }
       .login-link:hover {
-        color: var(--accent);
+        color: var(--cta-dark);
       }
     `
   ]
@@ -60,9 +56,26 @@ export class RegisterComponent {
   email = '';
   password = '';
   role: Role = 'user';
-  message = '';
 
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly route: ActivatedRoute,
+    private readonly notice: NoticeDialogService
+  ) {}
+
+  /** Pass through home search context (p, trip, from, to) to login. */
+  get bookingSearchQueryParams(): Record<string, string> {
+    const keys = ['p', 'passengers', 'trip', 'from', 'to'] as const;
+    const src = this.route.snapshot.queryParams;
+    const out: Record<string, string> = {};
+    for (const k of keys) {
+      const v = src[k];
+      if (typeof v === 'string' && v !== '') {
+        out[k] = v;
+      }
+    }
+    return out;
+  }
 
   register(): void {
     const result = this.authService.register({
@@ -72,6 +85,6 @@ export class RegisterComponent {
       password: this.password,
       role: this.role
     });
-    this.message = result.message;
+    this.notice.show(result.message, result.ok ? 'success' : 'error');
   }
 }

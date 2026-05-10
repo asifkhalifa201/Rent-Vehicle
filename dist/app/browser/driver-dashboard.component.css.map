@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;cb9e2e32594c5ca7109a09ac0f166e5815042c253a60cc387ee09a27d271fadc;C:/Car Rent/src/app/pages/driver-dashboard.component.ts"],
+  "sourcesContent": ["\n      .upload-hint {\n        display: inline-block;\n        margin-top: 6px;\n        padding: 4px 10px;\n        border-radius: 8px;\n        border: 1px solid var(--border);\n        background: color-mix(in srgb, var(--surface) 86%, var(--primary) 14%);\n        color: var(--text) !important;\n        font-size: 14px;\n        font-weight: 700;\n        line-height: 1.35;\n      }\n    "],
+  "mappings": ";AACM,CAAC;AACC,WAAS;AACT,cAAY;AACZ,WAAS,IAAI;AACb,iBAAe;AACf,UAAQ,IAAI,MAAM,IAAI;AACtB,cAAY,UAAU,GAAG,IAAI,EAAE,IAAI,WAAW,GAAG,EAAE,IAAI,WAAW;AAClE,SAAO,IAAI;AACX,aAAW;AACX,eAAa;AACb,eAAa;AACf;",
+  "names": []
+}

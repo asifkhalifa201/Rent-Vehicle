@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;46987287921bfd99af901db49fbc44fb4fa9afcb8afd2b104149a429882a078e;C:/Car Rent/src/app/pages/register.component.ts"],
+  "sourcesContent": ["\n      .login-link {\n        display: inline-block;\n        margin-top: 2px;\n        color: var(--cta);\n        font-weight: 700;\n        text-decoration: underline;\n        text-underline-offset: 3px;\n      }\n      .login-link:hover {\n        color: var(--cta-dark);\n      }\n    "],
+  "mappings": ";AACM,CAAC;AACC,WAAS;AACT,cAAY;AACZ,SAAO,IAAI;AACX,eAAa;AACb,mBAAiB;AACjB,yBAAuB;AACzB;AACA,CARC,UAQU;AACT,SAAO,IAAI;AACb;",
+  "names": []
+}

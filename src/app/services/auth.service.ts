@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { AppUser, Role } from '../models/models';
 import { DataService } from './data.service';
 
@@ -7,10 +6,7 @@ import { DataService } from './data.service';
 export class AuthService {
   private readonly currentUserKey = 'current_user';
 
-  constructor(
-    private readonly dataService: DataService,
-    private readonly router: Router
-  ) {}
+  constructor(private readonly dataService: DataService) {}
 
   register(user: Omit<AppUser, 'id'>): { ok: boolean; message: string } {
     const users = this.dataService.getUsers();
@@ -35,7 +31,6 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.currentUserKey);
-    this.router.navigateByUrl('/login');
   }
 
   getCurrentUser(): AppUser | null {

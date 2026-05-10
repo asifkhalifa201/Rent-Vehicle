@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Booking, UploadedFile, Vehicle } from '../models/models';
 import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
+import { ConfirmDialogService } from '../ui/confirm-dialog.service';
+import { NoticeDialogService } from '../ui/notice-dialog.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -57,8 +59,8 @@ import { DataService } from '../services/data.service';
             <td>Rs {{ v.basePrice200Km }} + {{ v.extraPricePerKm }}/km</td>
             <td>{{ getStatusLabel(v) }}</td>
             <td>
-              <button class="btn btn-primary" *ngIf="v.approvalStatus !== 'approved'" (click)="approve(v.id)">Approve</button>
-              <button class="btn btn-secondary" style="margin-left: 8px;" *ngIf="v.approvalStatus !== 'rejected'" (click)="reject(v.id)">Reject</button>
+              <button class="btn btn-primary" *ngIf="v.approvalStatus !== 'approved'" (click)="approveVehicle(v)">Approve</button>
+              <button class="btn btn-secondary" style="margin-left: 8px;" *ngIf="v.approvalStatus !== 'rejected'" (click)="rejectVehicle(v)">Reject</button>
             </td>
           </tr>
         </tbody>
@@ -74,6 +76,7 @@ import { DataService } from '../services/data.service';
             <th>Driver</th>
             <th>Vehicle</th>
             <th>Trip Type</th>
+            <th>Passengers</th>
             <th>From</th>
             <th>To</th>
             <th>Amount</th>
@@ -86,6 +89,7 @@ import { DataService } from '../services/data.service';
             <td>{{ b.driverName }}</td>
             <td>{{ b.vehicleName }}</td>
             <td>{{ b.tripType }}</td>
+            <td>{{ b.passengerCount }}</td>
             <td>{{ b.startDate }}</td>
             <td>{{ b.endDate }}</td>
             <td>Rs {{ b.totalAmount }}</td>
@@ -100,7 +104,9 @@ export class AdminDashboardComponent {
   constructor(
     private readonly dataService: DataService,
     private readonly authService: AuthService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly notice: NoticeDialogService,
+    private readonly confirm: ConfirmDialogService
   ) {
     if (!this.authService.hasRole('admin')) {
       this.router.navigateByUrl('/login');
@@ -115,22 +121,50 @@ export class AdminDashboardComponent {
     return this.dataService.getBookings();
   }
 
-  approve(vehicleId: string): void {
-    const all = this.dataService.getVehicles();
-    const vehicle = all.find((v) => v.id === vehicleId);
-    if (!vehicle) return;
-    vehicle.approved = true;
-    vehicle.approvalStatus = 'approved';
-    this.dataService.saveVehicles(all);
+  approveVehicle(vehicle: Vehicle): void {
+    this.confirm
+      .confirm(
+        `Approve ${vehicle.vehicleName} (${vehicle.vehicleType}) submitted by ${vehicle.driverName}? Drivers can list it for users once approved.`,
+        { title: 'Approve vehicle', confirmText: 'Approve' }
+      )
+      .subscribe((ok) => {
+        if (!ok) {
+          return;
+        }
+        const all = this.dataService.getVehicles();
+        const found = all.find((v) => v.id === vehicle.id);
+        if (!found) {
+          this.notice.show('Vehicle not found.', 'error');
+          return;
+        }
+        found.approved = true;
+        found.approvalStatus = 'approved';
+        this.dataService.saveVehicles(all);
+        this.notice.show('Vehicle approved. It can now appear in user search when seats match.', 'success');
+      });
   }
 
-  reject(vehicleId: string): void {
-    const all = this.dataService.getVehicles();
-    const vehicle = all.find((v) => v.id === vehicleId);
-    if (!vehicle) return;
-    vehicle.approved = false;
-    vehicle.approvalStatus = 'rejected';
-    this.dataService.saveVehicles(all);
+  rejectVehicle(vehicle: Vehicle): void {
+    this.confirm
+      .confirm(
+        `Reject ${vehicle.vehicleName} (${vehicle.vehicleType}) for ${vehicle.driverName}? It will be hidden from booking until updated and re-reviewed.`,
+        { title: 'Reject vehicle', danger: true, confirmText: 'Reject', cancelText: 'Keep pending' }
+      )
+      .subscribe((ok) => {
+        if (!ok) {
+          return;
+        }
+        const all = this.dataService.getVehicles();
+        const found = all.find((v) => v.id === vehicle.id);
+        if (!found) {
+          this.notice.show('Vehicle not found.', 'error');
+          return;
+        }
+        found.approved = false;
+        found.approvalStatus = 'rejected';
+        this.dataService.saveVehicles(all);
+        this.notice.show('Vehicle rejected.', 'info');
+      });
   }
 
   toUpload(input: unknown): UploadedFile {
@@ -147,7 +181,7 @@ export class AdminDashboardComponent {
   downloadDocument(input: unknown): void {
     const upload = this.toUpload(input);
     if (!upload.fileName || !upload.dataUrl) {
-      alert('Document file is missing. Ask driver to re-upload this document.');
+      this.notice.show('Document file is missing. Ask the driver to re-upload this document.', 'error');
       return;
     }
 
@@ -157,6 +191,7 @@ export class AdminDashboardComponent {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    this.notice.show(`Downloading ${upload.fileName}…`, 'success');
   }
 
   getStatusLabel(vehicle: Vehicle): string {

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;6f5d5667af4e857739c029d69f5095502bbb50a020b5a922be4ec2a95102865d;C:/Car Rent/src/app/pages/user-dashboard.component.ts"],
+  "sourcesContent": ["\n      .hint-line {\n        font-size: 14px;\n        color: var(--muted);\n        margin-top: 6px;\n      }\n      .warn-line {\n        font-size: 14px;\n        color: var(--warn, #ea580c);\n        margin-top: 8px;\n        font-weight: 600;\n      }\n      .preview-line {\n        font-weight: 700;\n        color: var(--text);\n      }\n      .table-wrap {\n        overflow-x: auto;\n      }\n    "],
+  "mappings": ";AACM,CAAC;AACC,aAAW;AACX,SAAO,IAAI;AACX,cAAY;AACd;AACA,CAAC;AACC,aAAW;AACX,SAAO,IAAI,MAAM,EAAE;AACnB,cAAY;AACZ,eAAa;AACf;AACA,CAAC;AACC,eAAa;AACb,SAAO,IAAI;AACb;AACA,CAAC;AACC,cAAY;AACd;",
+  "names": []
+}
