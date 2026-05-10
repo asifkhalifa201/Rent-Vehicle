@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;ef4f815c6e9b40dffcc045ea3ed910f86c777a39e45c0b0a6145a7618bed01e5;C:/Car Rent/src/app/ui/brand-logo.component.ts"],
+  "sourcesContent": ["\n      :host {\n        display: inline-flex;\n        align-items: center;\n        justify-content: center;\n        color: #fff;\n      }\n      .rm-mark {\n        width: 26px;\n        height: 26px;\n        flex-shrink: 0;\n      }\n      .rm-mark--sm {\n        width: 20px;\n        height: 20px;\n      }\n    "],
+  "mappings": ";AACM;AACE,WAAS;AACT,eAAa;AACb,mBAAiB;AACjB,SAAO;AACT;AACA,CAAC;AACC,SAAO;AACP,UAAQ;AACR,eAAa;AACf;AACA,CAAC;AACC,SAAO;AACP,UAAQ;AACV;",
+  "names": []
+}

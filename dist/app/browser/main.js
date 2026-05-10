@@ -33772,6 +33772,34 @@ var ConfirmHostComponent = class _ConfirmHostComponent {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ConfirmHostComponent, { className: "ConfirmHostComponent", filePath: "src\\app\\ui\\confirm-host.component.ts", lineNumber: 101 });
 })();
 
+// src/app/ui/brand-logo.component.ts
+var BrandLogoComponent = class _BrandLogoComponent {
+  constructor() {
+    this.size = "md";
+  }
+  static {
+    this.\u0275fac = function BrandLogoComponent_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _BrandLogoComponent)();
+    };
+  }
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _BrandLogoComponent, selectors: [["app-brand-logo"]], inputs: { size: "size" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 8, vars: 2, consts: [["viewBox", "0 0 48 48", "fill", "none", "xmlns", "http://www.w3.org/2000/svg", "role", "img", "focusable", "false", "aria-hidden", "true", 1, "rm-mark"], ["d", "M5 37c7-7 31-7 38 0", "stroke", "currentColor", "stroke-width", "2.4", "stroke-linecap", "round", "opacity", "0.95"], ["x", "13", "y", "20", "width", "22", "height", "12", "rx", "3.5", "fill", "currentColor"], ["d", "M16 20 18.5 12.5h11L32 20Z", "fill", "currentColor"], ["cx", "18", "cy", "34.5", "r", "2.35", "fill", "currentColor"], ["cx", "30", "cy", "34.5", "r", "2.35", "fill", "currentColor"], ["d", "M9 16.5Q14 10.5 19 16.5", "stroke", "currentColor", "stroke-width", "1.75", "stroke-linecap", "round", "opacity", "0.9"], ["d", "M29 16.5Q34 10.5 39 16.5", "stroke", "currentColor", "stroke-width", "1.75", "stroke-linecap", "round", "opacity", "0.9"]], template: function BrandLogoComponent_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275namespaceSVG();
+        \u0275\u0275elementStart(0, "svg", 0);
+        \u0275\u0275element(1, "path", 1)(2, "rect", 2)(3, "path", 3)(4, "circle", 4)(5, "circle", 5)(6, "path", 6)(7, "path", 7);
+        \u0275\u0275elementEnd();
+      }
+      if (rf & 2) {
+        \u0275\u0275classProp("rm-mark--sm", ctx.size === "sm");
+      }
+    }, styles: ["\n\n[_nghost-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  color: #fff;\n}\n.rm-mark[_ngcontent-%COMP%] {\n  width: 26px;\n  height: 26px;\n  flex-shrink: 0;\n}\n.rm-mark--sm[_ngcontent-%COMP%] {\n  width: 20px;\n  height: 20px;\n}\n/*# sourceMappingURL=brand-logo.component.css.map */"] });
+  }
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(BrandLogoComponent, { className: "BrandLogoComponent", filePath: "src\\app\\ui\\brand-logo.component.ts", lineNumber: 67 });
+})();
+
 // src/app/ui/notice-dialog.service.ts
 var AUTO_MS2 = 7e3;
 var NoticeDialogService = class _NoticeDialogService {
@@ -33951,7 +33979,7 @@ var DataService = class _DataService {
         {
           id: "admin-1",
           fullName: "System Admin",
-          email: "admin@rent.com",
+          email: "admin@ridemitra.com",
           password: "admin123",
           phone: "9000000000",
           role: "admin"
@@ -34032,37 +34060,37 @@ var AuthService = class _AuthService {
 };
 
 // src/app/app.component.ts
-function AppComponent_a_16_Template(rf, ctx) {
+function AppComponent_a_19_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 33);
+    \u0275\u0275elementStart(0, "a", 36);
     \u0275\u0275text(1, "Login");
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_a_17_Template(rf, ctx) {
+function AppComponent_a_20_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 34);
+    \u0275\u0275elementStart(0, "a", 37);
     \u0275\u0275text(1, "Get started");
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_a_18_Template(rf, ctx) {
+function AppComponent_a_21_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 35);
+    \u0275\u0275elementStart(0, "a", 38);
     \u0275\u0275text(1, "Book now");
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_button_22_Template(rf, ctx) {
+function AppComponent_button_25_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 36);
-    \u0275\u0275listener("click", function AppComponent_button_22_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 39);
+    \u0275\u0275listener("click", function AppComponent_button_25_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r1 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r1.logout());
     });
-    \u0275\u0275element(1, "i", 37);
+    \u0275\u0275element(1, "i", 40);
     \u0275\u0275text(2, "Logout ");
     \u0275\u0275elementEnd();
   }
@@ -34103,76 +34131,82 @@ var AppComponent = class _AppComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 62, vars: 7, consts: [[1, "topbar", "shadow-sm"], [1, "container", "d-flex", "justify-content-between", "align-items-center", "py-2", "gap-3", "flex-wrap"], ["routerLink", "/", 1, "brand", "d-flex", "align-items-center", "gap-2"], [1, "logo-badge"], [1, "bi", "bi-car-front-fill"], [1, "d-flex", "align-items-center", "gap-1", "flex-wrap"], ["routerLink", "/", 1, "nav-pill"], ["routerLink", "/about", 1, "nav-pill"], ["routerLink", "/contact", 1, "nav-pill"], ["routerLink", "/login", "class", "nav-pill", 4, "ngIf"], ["routerLink", "/register", "class", "btn btn-cta btn-sm px-3", 4, "ngIf"], ["routerLink", "/user-dashboard", "class", "btn btn-cta btn-sm px-3", 4, "ngIf"], ["type", "button", "title", "Theme", 1, "btn", "btn-outline-secondary", "btn-sm", "border-0", 3, "click"], [1, "bi", 3, "ngClass"], ["class", "btn btn-secondary btn-sm", 3, "click", 4, "ngIf"], [1, "page-main"], [1, "container", "page"], [1, "footer", "site-footer"], [1, "container"], [1, "row", "g-4", "py-4", "text-start"], [1, "col-md-4"], [1, "d-flex", "align-items-center", "gap-2", "mb-2"], [1, "logo-badge", "logo-badge-sm"], [1, "footer-brand"], [1, "small", "mb-0"], [1, "text-uppercase", "small", "fw-bold", "mb-3"], [1, "list-unstyled", "small", "mb-0"], ["routerLink", "/"], ["routerLink", "/about"], ["routerLink", "/contact"], ["routerLink", "/register"], [1, "small", "mb-1"], [1, "footer-bottom", "text-center", "small", "py-3"], ["routerLink", "/login", 1, "nav-pill"], ["routerLink", "/register", 1, "btn", "btn-cta", "btn-sm", "px-3"], ["routerLink", "/user-dashboard", 1, "btn", "btn-cta", "btn-sm", "px-3"], [1, "btn", "btn-secondary", "btn-sm", 3, "click"], [1, "bi", "bi-box-arrow-right", "me-1"]], template: function AppComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 68, vars: 7, consts: [[1, "topbar", "shadow-sm"], [1, "container", "d-flex", "justify-content-between", "align-items-center", "py-2", "gap-3", "flex-wrap"], ["routerLink", "/", 1, "brand", "d-flex", "align-items-center", "gap-2"], [1, "logo-badge"], [1, "brand-wordmark"], [1, "brand-ride"], [1, "brand-mitra"], [1, "d-flex", "align-items-center", "gap-1", "flex-wrap"], ["routerLink", "/", 1, "nav-pill"], ["routerLink", "/about", 1, "nav-pill"], ["routerLink", "/contact", 1, "nav-pill"], ["routerLink", "/login", "class", "nav-pill", 4, "ngIf"], ["routerLink", "/register", "class", "btn btn-cta btn-sm px-3", 4, "ngIf"], ["routerLink", "/user-dashboard", "class", "btn btn-cta btn-sm px-3", 4, "ngIf"], ["type", "button", "title", "Theme", 1, "btn", "btn-outline-secondary", "btn-sm", "border-0", 3, "click"], [1, "bi", 3, "ngClass"], ["class", "btn btn-secondary btn-sm", 3, "click", 4, "ngIf"], [1, "page-main"], [1, "container", "page"], [1, "footer", "site-footer"], [1, "container"], [1, "row", "g-4", "py-4", "text-start"], [1, "col-md-4"], [1, "d-flex", "align-items-center", "gap-2", "mb-2"], [1, "logo-badge", "logo-badge-sm"], ["size", "sm"], [1, "footer-brand", "brand-wordmark"], [1, "small", "mb-0"], [1, "text-uppercase", "small", "fw-bold", "mb-3"], [1, "list-unstyled", "small", "mb-0"], ["routerLink", "/"], ["routerLink", "/about"], ["routerLink", "/contact"], ["routerLink", "/register"], [1, "small", "mb-1"], [1, "footer-bottom", "text-center", "small", "py-3"], ["routerLink", "/login", 1, "nav-pill"], ["routerLink", "/register", 1, "btn", "btn-cta", "btn-sm", "px-3"], ["routerLink", "/user-dashboard", 1, "btn", "btn-cta", "btn-sm", "px-3"], [1, "btn", "btn-secondary", "btn-sm", 3, "click"], [1, "bi", "bi-box-arrow-right", "me-1"]], template: function AppComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-notice-host")(1, "app-confirm-host");
         \u0275\u0275elementStart(2, "header", 0)(3, "div", 1)(4, "a", 2)(5, "span", 3);
-        \u0275\u0275element(6, "i", 4);
+        \u0275\u0275element(6, "app-brand-logo");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(7, "span");
-        \u0275\u0275text(8, "Car Rent");
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(9, "nav", 5)(10, "a", 6);
-        \u0275\u0275text(11, "Home");
+        \u0275\u0275elementStart(7, "span", 4)(8, "span", 5);
+        \u0275\u0275text(9, "Ride");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(12, "a", 7);
-        \u0275\u0275text(13, "About");
+        \u0275\u0275elementStart(10, "span", 6);
+        \u0275\u0275text(11, "Mitra");
+        \u0275\u0275elementEnd()()();
+        \u0275\u0275elementStart(12, "nav", 7)(13, "a", 8);
+        \u0275\u0275text(14, "Home");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(14, "a", 8);
-        \u0275\u0275text(15, "Contact");
+        \u0275\u0275elementStart(15, "a", 9);
+        \u0275\u0275text(16, "About");
         \u0275\u0275elementEnd();
-        \u0275\u0275template(16, AppComponent_a_16_Template, 2, 0, "a", 9)(17, AppComponent_a_17_Template, 2, 0, "a", 10)(18, AppComponent_a_18_Template, 2, 0, "a", 11);
-        \u0275\u0275elementStart(19, "button", 12);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_19_listener() {
+        \u0275\u0275elementStart(17, "a", 10);
+        \u0275\u0275text(18, "Contact");
+        \u0275\u0275elementEnd();
+        \u0275\u0275template(19, AppComponent_a_19_Template, 2, 0, "a", 11)(20, AppComponent_a_20_Template, 2, 0, "a", 12)(21, AppComponent_a_21_Template, 2, 0, "a", 13);
+        \u0275\u0275elementStart(22, "button", 14);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_22_listener() {
           return ctx.toggleTheme();
         });
-        \u0275\u0275element(20, "i", 13);
-        \u0275\u0275text(21);
+        \u0275\u0275element(23, "i", 15);
+        \u0275\u0275text(24);
         \u0275\u0275elementEnd();
-        \u0275\u0275template(22, AppComponent_button_22_Template, 3, 0, "button", 14);
+        \u0275\u0275template(25, AppComponent_button_25_Template, 3, 0, "button", 16);
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(23, "main", 15)(24, "div", 16);
-        \u0275\u0275element(25, "router-outlet");
+        \u0275\u0275elementStart(26, "main", 17)(27, "div", 18);
+        \u0275\u0275element(28, "router-outlet");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(26, "footer", 17)(27, "div", 18)(28, "div", 19)(29, "div", 20)(30, "div", 21)(31, "span", 22);
-        \u0275\u0275element(32, "i", 4);
+        \u0275\u0275elementStart(29, "footer", 19)(30, "div", 20)(31, "div", 21)(32, "div", 22)(33, "div", 23)(34, "span", 24);
+        \u0275\u0275element(35, "app-brand-logo", 25);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(33, "strong", 23);
-        \u0275\u0275text(34, "Car Rent");
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(35, "p", 24);
-        \u0275\u0275text(36, "Verified vehicles for wedding, trip and transport. Book with confidence.");
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(37, "div", 20)(38, "h6", 25);
-        \u0275\u0275text(39, "Quick links");
+        \u0275\u0275elementStart(36, "strong", 26)(37, "span", 5);
+        \u0275\u0275text(38, "Ride");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(40, "ul", 26)(41, "li")(42, "a", 27);
-        \u0275\u0275text(43, "Home");
+        \u0275\u0275elementStart(39, "span", 6);
+        \u0275\u0275text(40, "Mitra");
+        \u0275\u0275elementEnd()()();
+        \u0275\u0275elementStart(41, "p", 27);
+        \u0275\u0275text(42, "Verified vehicles for wedding, trip and transport \u2014 your ride, your mitra.");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(44, "li")(45, "a", 28);
-        \u0275\u0275text(46, "About");
+        \u0275\u0275elementStart(43, "div", 22)(44, "h6", 28);
+        \u0275\u0275text(45, "Quick links");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(46, "ul", 29)(47, "li")(48, "a", 30);
+        \u0275\u0275text(49, "Home");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(47, "li")(48, "a", 29);
-        \u0275\u0275text(49, "Contact");
+        \u0275\u0275elementStart(50, "li")(51, "a", 31);
+        \u0275\u0275text(52, "About");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(50, "li")(51, "a", 30);
-        \u0275\u0275text(52, "Register");
-        \u0275\u0275elementEnd()()()();
-        \u0275\u0275elementStart(53, "div", 20)(54, "h6", 25);
+        \u0275\u0275elementStart(53, "li")(54, "a", 32);
         \u0275\u0275text(55, "Contact");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(56, "li")(57, "a", 33);
+        \u0275\u0275text(58, "Register");
+        \u0275\u0275elementEnd()()()();
+        \u0275\u0275elementStart(59, "div", 22)(60, "h6", 28);
+        \u0275\u0275text(61, "Contact");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(56, "p", 31);
-        \u0275\u0275text(57, "support@rent.com");
+        \u0275\u0275elementStart(62, "p", 34);
+        \u0275\u0275text(63, "support@ridemitra.com");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(58, "p", 24);
-        \u0275\u0275text(59, "+91 98765 43210");
+        \u0275\u0275elementStart(64, "p", 27);
+        \u0275\u0275text(65, "+91 98765 43210");
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(60, "div", 32);
-        \u0275\u0275text(61);
+        \u0275\u0275elementStart(66, "div", 35);
+        \u0275\u0275text(67);
         \u0275\u0275elementEnd()()();
       }
       if (rf & 2) {
-        \u0275\u0275advance(16);
+        \u0275\u0275advance(19);
         \u0275\u0275property("ngIf", !ctx.currentUser);
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", !ctx.currentUser);
@@ -34184,14 +34218,14 @@ var AppComponent = class _AppComponent {
         \u0275\u0275textInterpolate1(" ", ctx.theme === "light" ? "Dark" : "Light", " ");
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.currentUser);
-        \u0275\u0275advance(39);
-        \u0275\u0275textInterpolate1(" \xA9 ", ctx.year, " Car Rent Platform. All rights reserved. ");
+        \u0275\u0275advance(42);
+        \u0275\u0275textInterpolate1(" \xA9 ", ctx.year, " RideMitra. All rights reserved. ");
       }
-    }, dependencies: [CommonModule, NgClass, NgIf, RouterOutlet, RouterLink, NoticeHostComponent, ConfirmHostComponent], styles: ["\n\n.topbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  background: color-mix(in srgb, var(--surface) 92%, transparent);\n  border-bottom: 1px solid var(--border);\n  backdrop-filter: blur(12px);\n}\n.brand[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1.2rem;\n  color: var(--nav-text);\n  letter-spacing: -0.02em;\n}\n.logo-badge[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 12px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background:\n    linear-gradient(\n      135deg,\n      var(--cta),\n      var(--cta-dark));\n  color: #fff;\n  font-size: 1.1rem;\n}\n.logo-badge-sm[_ngcontent-%COMP%] {\n  width: 32px;\n  height: 32px;\n  border-radius: 10px;\n  font-size: 0.95rem;\n}\n.nav-pill[_ngcontent-%COMP%] {\n  padding: 8px 14px;\n  border-radius: 999px;\n  font-size: 14px;\n  font-weight: 600;\n  color: var(--nav-muted);\n}\n.nav-pill[_ngcontent-%COMP%]:hover {\n  color: var(--nav-text);\n  background: var(--hover);\n}\n.page-main[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.page[_ngcontent-%COMP%] {\n  min-height: calc(100vh - 220px);\n  padding-top: 20px;\n  padding-bottom: 32px;\n}\n.site-footer[_ngcontent-%COMP%] {\n  background: var(--footer-bg);\n  color: var(--footer-text);\n  border-top: 1px solid var(--border);\n}\n.site-footer[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--footer-muted);\n}\n.site-footer[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: var(--cta);\n}\n.footer-bottom[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(255, 255, 255, 0.08);\n  color: var(--footer-muted);\n}\n.footer-brand[_ngcontent-%COMP%] {\n  color: var(--footer-text);\n  font-size: 1.05rem;\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+    }, dependencies: [CommonModule, NgClass, NgIf, RouterOutlet, RouterLink, NoticeHostComponent, ConfirmHostComponent, BrandLogoComponent], styles: ["\n\n.topbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  background: color-mix(in srgb, var(--surface) 92%, transparent);\n  border-bottom: 1px solid var(--border);\n  backdrop-filter: blur(12px);\n}\n.brand[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1.2rem;\n  color: var(--nav-text);\n  letter-spacing: -0.02em;\n}\n.brand-wordmark[_ngcontent-%COMP%] {\n  letter-spacing: -0.03em;\n  white-space: nowrap;\n}\n.brand-ride[_ngcontent-%COMP%] {\n  color: var(--nav-text);\n}\n.brand-mitra[_ngcontent-%COMP%] {\n  color: var(--cta);\n}\n.site-footer[_ngcontent-%COMP%]   .brand-ride[_ngcontent-%COMP%] {\n  color: var(--footer-text);\n}\n.site-footer[_ngcontent-%COMP%]   .brand-mitra[_ngcontent-%COMP%] {\n  color: var(--cta);\n}\n.logo-badge[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 12px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background:\n    linear-gradient(\n      135deg,\n      var(--cta),\n      var(--cta-dark));\n  color: #fff;\n  font-size: 1.1rem;\n}\n.logo-badge-sm[_ngcontent-%COMP%] {\n  width: 32px;\n  height: 32px;\n  border-radius: 10px;\n  font-size: 0.95rem;\n}\n.nav-pill[_ngcontent-%COMP%] {\n  padding: 8px 14px;\n  border-radius: 999px;\n  font-size: 14px;\n  font-weight: 600;\n  color: var(--nav-muted);\n}\n.nav-pill[_ngcontent-%COMP%]:hover {\n  color: var(--nav-text);\n  background: var(--hover);\n}\n.page-main[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.page[_ngcontent-%COMP%] {\n  min-height: calc(100vh - 220px);\n  padding-top: 20px;\n  padding-bottom: 32px;\n}\n.site-footer[_ngcontent-%COMP%] {\n  background: var(--footer-bg);\n  color: var(--footer-text);\n  border-top: 1px solid var(--border);\n}\n.site-footer[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--footer-muted);\n}\n.site-footer[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: var(--cta);\n}\n.footer-bottom[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(255, 255, 255, 0.08);\n  color: var(--footer-muted);\n}\n.footer-brand[_ngcontent-%COMP%] {\n  color: var(--footer-text);\n  font-size: 1.05rem;\n}\n/*# sourceMappingURL=app.component.css.map */"] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 151 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 172 });
 })();
 
 // src/app/pages/about.component.ts
@@ -34205,7 +34239,7 @@ var AboutComponent = class _AboutComponent {
     this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AboutComponent, selectors: [["app-about"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 86, vars: 0, consts: [[1, "page-hero", "mb-4"], [1, "container", "py-4"], [1, "eyebrow", "mb-2"], [1, "hero-h1", "text-white", "mb-2"], [1, "lead", "text-white-50", "mb-0"], [1, "card", "mb-3"], [1, "mb-0"], [1, "row", "g-3", "mb-3"], [1, "col-md-4"], [1, "mini-tile", "h-100"], [1, "bi", "bi-bullseye", "text-primary", "me-2"], [1, "small", "mb-0"], [1, "bi", "bi-eye", "text-primary", "me-2"], [1, "bi", "bi-hand-thumbs-up", "text-primary", "me-2"], [1, "row", "g-3"], [1, "col-md-6"], [1, "card", "cta-strip", "d-flex", "flex-column", "flex-md-row", "align-items-md-center", "justify-content-between", "gap-3"], [1, "text-white", "mb-1"], [1, "text-white-50", "small", "mb-0"], ["routerLink", "/contact", 1, "btn", "btn-light", "btn-sm", "fw-bold", "px-4"]], template: function AboutComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275elementStart(0, "div", 0)(1, "div", 1)(2, "p", 2);
-        \u0275\u0275text(3, "About Car Rent");
+        \u0275\u0275text(3, "About RideMitra");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(4, "h1", 3);
         \u0275\u0275text(5, "We connect people with verified vehicles");
@@ -34214,7 +34248,7 @@ var AboutComponent = class _AboutComponent {
         \u0275\u0275text(7, " Wedding travel, family tours and transport \u2014 simple booking, clear pricing, and documents you can trust. ");
         \u0275\u0275elementEnd()()();
         \u0275\u0275elementStart(8, "section", 5)(9, "p");
-        \u0275\u0275text(10, " Car Rent is a booking platform where users find admin-approved vehicles listed by registered drivers. Every listing is backed by RC, insurance, PUC, permit and license checks before it goes live. ");
+        \u0275\u0275text(10, " RideMitra is a booking platform where users find admin-approved vehicles listed by registered drivers. Every listing is backed by RC, insurance, PUC, permit and license checks before it goes live. ");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(11, "p", 6);
         \u0275\u0275text(12, " Our goal is transparent pricing, driver confirmation on each request, and privacy: users see only their bookings; drivers see only their fleet and requests. ");
@@ -34669,7 +34703,7 @@ var ContactComponent = class _ContactComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ContactComponent, selectors: [["app-contact"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 47, vars: 0, consts: [[1, "page-hero", "mb-4"], [1, "container", "py-4"], [1, "eyebrow", "mb-2"], [1, "hero-h1", "text-white", "mb-2"], [1, "lead", "text-white-50", "mb-0"], [1, "row", "g-3"], [1, "col-md-4"], [1, "contact-tile", "h-100", "text-center"], [1, "icon-wrap", "mx-auto", "mb-3"], [1, "bi", "bi-envelope-fill"], [1, "small", "mb-0"], ["href", "mailto:support@rent.com", 1, "link-cta"], [1, "bi", "bi-telephone-fill"], ["href", "tel:+919876543210", 1, "link-cta"], [1, "bi", "bi-geo-alt-fill"], [1, "card", "mt-3"], [1, "mb-2"], [1, "mb-0"], [1, "text-center", "mt-3"], ["routerLink", "/register", 1, "btn", "btn-cta", "btn-sm", "px-4"]], template: function ContactComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ContactComponent, selectors: [["app-contact"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 47, vars: 0, consts: [[1, "page-hero", "mb-4"], [1, "container", "py-4"], [1, "eyebrow", "mb-2"], [1, "hero-h1", "text-white", "mb-2"], [1, "lead", "text-white-50", "mb-0"], [1, "row", "g-3"], [1, "col-md-4"], [1, "contact-tile", "h-100", "text-center"], [1, "icon-wrap", "mx-auto", "mb-3"], [1, "bi", "bi-envelope-fill"], [1, "small", "mb-0"], ["href", "mailto:support@ridemitra.com", 1, "link-cta"], [1, "bi", "bi-telephone-fill"], ["href", "tel:+919876543210", 1, "link-cta"], [1, "bi", "bi-geo-alt-fill"], [1, "card", "mt-3"], [1, "mb-2"], [1, "mb-0"], [1, "text-center", "mt-3"], ["routerLink", "/register", 1, "btn", "btn-cta", "btn-sm", "px-4"]], template: function ContactComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275elementStart(0, "div", 0)(1, "div", 1)(2, "p", 2);
         \u0275\u0275text(3, "Get in touch");
@@ -34687,7 +34721,7 @@ var ContactComponent = class _ContactComponent {
         \u0275\u0275text(14, "Email");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(15, "p", 10)(16, "a", 11);
-        \u0275\u0275text(17, "support@rent.com");
+        \u0275\u0275text(17, "support@ridemitra.com");
         \u0275\u0275elementEnd()()()();
         \u0275\u0275elementStart(18, "div", 6)(19, "div", 7)(20, "div", 8);
         \u0275\u0275element(21, "i", 12);
@@ -41517,7 +41551,7 @@ var HomeComponent = class _HomeComponent {
     this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _HomeComponent, selectors: [["app-home"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 212, vars: 9, consts: [[1, "home-hero-bleed", "hero-section", "mb-4"], [1, "container", "py-5", "py-md-5"], [1, "row", "align-items-center", "g-4"], [1, "col-lg-6"], [1, "hero-eyebrow", "mb-2"], [1, "hero-title", "text-white", "mb-3"], [1, "hero-lead", "text-white-50", "mb-4"], [1, "d-flex", "flex-wrap", "gap-2", "mb-4"], ["routerLink", "/register", 1, "btn", "btn-cta", "btn-lg", "px-4"], ["routerLink", "/about", 1, "btn", "btn-outline-light", "btn-lg", "px-4"], [1, "d-flex", "flex-wrap", "gap-3", "hero-badges"], [1, "hero-badge"], [1, "bi", "bi-shield-check"], [1, "bi", "bi-currency-rupee"], [1, "bi", "bi-lightning-charge"], [1, "search-panel", "shadow-lg"], [1, "search-panel-title", "mb-2"], [1, "small", "search-panel-lead", "mb-3"], [1, "row", "g-2", "mb-2"], [1, "col-12"], ["for", "home-trip", 1, "form-label", "small", "fw-bold", "mb-0"], ["id", "home-trip", 1, "form-select", "form-select-sm", "mt-1", "home-form-control", 3, "ngModelChange", "ngModel"], ["value", "wedding"], ["value", "trip"], ["value", "transport"], [1, "col-md-6"], ["for", "home-from", 1, "form-label", "small", "fw-bold", "mb-0"], ["id", "home-from", "type", "date", 1, "form-control", "form-control-sm", "mt-1", "home-form-control", 3, "ngModelChange", "ngModel", "min"], ["for", "home-to", 1, "form-label", "small", "fw-bold", "mb-0"], ["id", "home-to", "type", "date", 1, "form-control", "form-control-sm", "mt-1", "home-form-control", 3, "ngModelChange", "ngModel", "min"], ["for", "home-pax", 1, "form-label", "small", "fw-bold", "mb-0"], ["id", "home-pax", "type", "number", "min", "1", 1, "form-control", "form-control-sm", "mt-1", "home-form-control", 3, "ngModelChange", "ngModel"], ["type", "button", 1, "btn", "btn-cta", "w-100", "py-2", "mt-1", 3, "click"], [1, "small", "text-center", "search-panel-foot", "mt-2", "mb-0"], ["routerLink", "/register", 1, "link-cta", 3, "queryParams"], ["routerLink", "/login", 1, "link-cta", 3, "queryParams"], [1, "row", "g-3", "mb-4", "text-center", "stats-row"], [1, "col-6", "col-md-3"], [1, "stat-card"], [1, "stat-num"], [1, "stat-suffix"], [1, "stat-label"], [1, "mb-2"], [1, "section-heading"], [1, "section-sub"], [1, "row", "g-3", "mb-4"], [1, "col-md-6", "col-lg-3"], [1, "category-card", "h-100"], [1, "category-icon"], [1, "bi", "bi-car-front"], [1, "small", "mb-0"], [1, "bi", "bi-bus-front"], [1, "bi", "bi-truck"], [1, "bi", "bi-truck-flatbed"], [1, "site-card", "mb-4"], [1, "section-heading", "mb-3"], [1, "row", "g-3"], [1, "step-card", "text-center", "h-100"], [1, "step-num"], [1, "mt-2"], [1, "col-lg-7"], [1, "site-card", "h-100"], [1, "bi", "bi-receipt", "me-2", "text-primary"], [1, "mb-0"], [1, "col-lg-5"], [1, "site-card", "h-100", "cta-side"], [1, "section-heading", "text-white"], [1, "text-white-50"], [1, "text-white", "mb-1"], [1, "bi", "bi-telephone", "me-2"], [1, "text-white", "mb-3"], [1, "bi", "bi-envelope", "me-2"], ["routerLink", "/contact", 1, "btn", "btn-light", "btn-sm", "fw-bold"], [1, "site-card"], [1, "col-md-4"], [1, "bi", "bi-patch-check-fill", "text-primary", "me-2"], [1, "bi", "bi-people", "text-primary", "me-2"], [1, "bi", "bi-graph-up-arrow", "text-primary", "me-2"]], template: function HomeComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275elementStart(0, "div", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3)(4, "p", 4);
-        \u0275\u0275text(5, "Premium vehicle rental");
+        \u0275\u0275text(5, "RideMitra \u2014 premium rides");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(6, "h1", 5);
         \u0275\u0275text(7, " Drive your journey with verified cars & drivers ");
@@ -41739,13 +41773,13 @@ var HomeComponent = class _HomeComponent {
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(185, "p", 70);
         \u0275\u0275element(186, "i", 71);
-        \u0275\u0275text(187, "support@rent.com");
+        \u0275\u0275text(187, "support@ridemitra.com");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(188, "a", 72);
         \u0275\u0275text(189, "Contact us");
         \u0275\u0275elementEnd()()()();
         \u0275\u0275elementStart(190, "section", 73)(191, "h2", 55);
-        \u0275\u0275text(192, "Why Car Rent");
+        \u0275\u0275text(192, "Why RideMitra");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(193, "div", 56)(194, "div", 74)(195, "h3");
         \u0275\u0275element(196, "i", 75);

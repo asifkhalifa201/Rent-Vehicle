@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   template: `
     <div class="page-hero mb-4">
       <div class="container py-4">
-        <p class="eyebrow mb-2">About Car Rent</p>
+        <p class="eyebrow mb-2">About RideMitra</p>
         <h1 class="hero-h1 text-white mb-2">We connect people with verified vehicles</h1>
         <p class="lead text-white-50 mb-0">
           Wedding travel, family tours and transport — simple booking, clear pricing, and documents you can trust.
@@ -18,7 +18,7 @@ import { RouterLink } from '@angular/router';
 
     <section class="card mb-3">
       <p>
-        Car Rent is a booking platform where users find admin-approved vehicles listed by registered drivers.
+        RideMitra is a booking platform where users find admin-approved vehicles listed by registered drivers.
         Every listing is backed by RC, insurance, PUC, permit and license checks before it goes live.
       </p>
       <p class="mb-0">

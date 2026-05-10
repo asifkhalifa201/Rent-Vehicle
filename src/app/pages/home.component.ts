@@ -14,7 +14,7 @@ import { NoticeDialogService } from '../ui/notice-dialog.service';
       <div class="container py-5 py-md-5">
         <div class="row align-items-center g-4">
           <div class="col-lg-6">
-            <p class="hero-eyebrow mb-2">Premium vehicle rental</p>
+            <p class="hero-eyebrow mb-2">RideMitra — premium rides</p>
             <h1 class="hero-title text-white mb-3">
               Drive your journey with verified cars &amp; drivers
             </h1>
@@ -208,14 +208,14 @@ import { NoticeDialogService } from '../ui/notice-dialog.service';
           <h2 class="section-heading text-white">Need help?</h2>
           <p class="text-white-50">Our team helps with bookings, documents and account issues.</p>
           <p class="text-white mb-1"><i class="bi bi-telephone me-2"></i>+91 98765 43210</p>
-          <p class="text-white mb-3"><i class="bi bi-envelope me-2"></i>support&#64;rent.com</p>
+          <p class="text-white mb-3"><i class="bi bi-envelope me-2"></i>support&#64;ridemitra.com</p>
           <a routerLink="/contact" class="btn btn-light btn-sm fw-bold">Contact us</a>
         </div>
       </div>
     </section>
 
     <section class="site-card">
-      <h2 class="section-heading mb-3">Why Car Rent</h2>
+      <h2 class="section-heading mb-3">Why RideMitra</h2>
       <div class="row g-3">
         <div class="col-md-4">
           <h3><i class="bi bi-patch-check-fill text-primary me-2"></i>Verified fleet</h3>

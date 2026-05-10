@@ -4,20 +4,23 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { ConfirmHostComponent } from './ui/confirm-host.component';
 import { NoticeDialogService } from './ui/notice-dialog.service';
+import { BrandLogoComponent } from './ui/brand-logo.component';
 import { NoticeHostComponent } from './ui/notice-host.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, NoticeHostComponent, ConfirmHostComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, NoticeHostComponent, ConfirmHostComponent, BrandLogoComponent],
   template: `
     <app-notice-host />
     <app-confirm-host />
     <header class="topbar shadow-sm">
       <div class="container d-flex justify-content-between align-items-center py-2 gap-3 flex-wrap">
         <a routerLink="/" class="brand d-flex align-items-center gap-2">
-          <span class="logo-badge"><i class="bi bi-car-front-fill"></i></span>
-          <span>Car Rent</span>
+          <span class="logo-badge"><app-brand-logo></app-brand-logo></span>
+          <span class="brand-wordmark">
+            <span class="brand-ride">Ride</span><span class="brand-mitra">Mitra</span>
+          </span>
         </a>
         <nav class="d-flex align-items-center gap-1 flex-wrap">
           <a routerLink="/" class="nav-pill">Home</a>
@@ -48,10 +51,12 @@ import { NoticeHostComponent } from './ui/notice-host.component';
         <div class="row g-4 py-4 text-start">
           <div class="col-md-4">
             <div class="d-flex align-items-center gap-2 mb-2">
-              <span class="logo-badge logo-badge-sm"><i class="bi bi-car-front-fill"></i></span>
-              <strong class="footer-brand">Car Rent</strong>
+              <span class="logo-badge logo-badge-sm"><app-brand-logo size="sm"></app-brand-logo></span>
+              <strong class="footer-brand brand-wordmark">
+                <span class="brand-ride">Ride</span><span class="brand-mitra">Mitra</span>
+              </strong>
             </div>
-            <p class="small mb-0">Verified vehicles for wedding, trip and transport. Book with confidence.</p>
+            <p class="small mb-0">Verified vehicles for wedding, trip and transport — your ride, your mitra.</p>
           </div>
           <div class="col-md-4">
             <h6 class="text-uppercase small fw-bold mb-3">Quick links</h6>
@@ -64,12 +69,12 @@ import { NoticeHostComponent } from './ui/notice-host.component';
           </div>
           <div class="col-md-4">
             <h6 class="text-uppercase small fw-bold mb-3">Contact</h6>
-            <p class="small mb-1">support&#64;rent.com</p>
+            <p class="small mb-1">support&#64;ridemitra.com</p>
             <p class="small mb-0">+91 98765 43210</p>
           </div>
         </div>
         <div class="footer-bottom text-center small py-3">
-          © {{ year }} Car Rent Platform. All rights reserved.
+          © {{ year }} RideMitra. All rights reserved.
         </div>
       </div>
     </footer>
@@ -89,6 +94,22 @@ import { NoticeHostComponent } from './ui/notice-host.component';
         font-size: 1.2rem;
         color: var(--nav-text);
         letter-spacing: -0.02em;
+      }
+      .brand-wordmark {
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+      }
+      .brand-ride {
+        color: var(--nav-text);
+      }
+      .brand-mitra {
+        color: var(--cta);
+      }
+      .site-footer .brand-ride {
+        color: var(--footer-text);
+      }
+      .site-footer .brand-mitra {
+        color: var(--cta);
       }
       .logo-badge {
         width: 40px;

@@ -52,7 +52,7 @@ export class DataService {
         {
           id: 'admin-1',
           fullName: 'System Admin',
-          email: 'admin@rent.com',
+          email: 'admin@ridemitra.com',
           password: 'admin123',
           phone: '9000000000',
           role: 'admin'

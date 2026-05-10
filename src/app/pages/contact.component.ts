@@ -19,7 +19,7 @@ import { RouterLink } from '@angular/router';
         <div class="contact-tile h-100 text-center">
           <div class="icon-wrap mx-auto mb-3"><i class="bi bi-envelope-fill"></i></div>
           <h3>Email</h3>
-          <p class="small mb-0"><a class="link-cta" href="mailto:support@rent.com">support&#64;rent.com</a></p>
+          <p class="small mb-0"><a class="link-cta" href="mailto:support@ridemitra.com">support&#64;ridemitra.com</a></p>
         </div>
       </div>
       <div class="col-md-4">
